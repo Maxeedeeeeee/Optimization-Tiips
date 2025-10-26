@@ -1,0 +1,183 @@
+# This is the main configuration file for Spigot.
+# As you can see, there's tons to configure. Some options may impact gameplay, so use
+# with caution, and make sure you know what each option does before configuring.
+#
+#_COMMENT: "PLEASE READ: These settings are optimized for PERFORMANCE over vanilla behavior.
+# It is STRONGLY recommended to use Paper (https://papermc.io/) instead of Spigot.
+# Paper is a drop-in replacement and provides vastly superior performance."
+#
+
+messages:
+  whitelist: You are not whitelisted on this server!
+  server-full: The server is full!
+  outdated-client: Outdated client! Please use {0}
+  outdated-server: Outdated server! I'm still on {0}
+  restart: Server is restarting
+advancements:
+  disable-saving: true # OPTIMIZATION: Disables saving advancements to disk.
+  disabled:
+  - minecraft:story/disabled
+settings:
+  bungeecord: false
+  save-user-cache-on-stop-only: true # OPTIMIZATION: Batches user data saving to server stop, reducing I/O lag.
+  sample-count: 12
+  player-shuffle: 0
+  user-cache-size: 1000
+  moved-wrongly-threshold: 0.0625
+  moved-too-quickly-multiplier: 10.0
+  timeout-time: 90 # TWEAK: Slightly increases timeout to help players with unstable connections.
+  restart-on-crash: true
+  restart-script: ./start.sh
+  netty-threads: 4 # NOTE: Leave this as default unless you are an advanced user and understand your CPU's threading.
+  attribute:
+    maxAbsorption:
+      max: 2048.0
+    maxHealth:
+      max: 1024.0
+    movementSpeed:
+      max: 1024.0
+    attackDamage:
+      max: 2048.0
+  log-villager-deaths: true
+  log-named-deaths: true
+  debug: false
+world-settings:
+  default:
+    below-zero-generation-in-existing-chunks: true
+    view-distance: 6 # OPTIMIZATION: This is the BIGGEST performance gain. Vanilla is 10. Lower = less lag.
+    simulation-distance: 4 # OPTIMIZATION: Reduces the distance for entity ticking. Another huge performance gain.
+    thunder-chance: 100000
+    merge-radius:
+      item: 3.0 # OPTIMIZATION: Merges item stacks from 3 blocks away. MASSIVELY reduces lag from item drops.
+      exp: 4.0 # OPTIMIZATION: Merges XP orbs from 4 blocks away. Reduces lag from mob farms.
+    mob-spawn-range: 6 # OPTIMIZATION: Reduces range (in chunks) where mobs spawn. Fewer spawn checks = less lag.
+    item-despawn-rate: 6000
+    arrow-despawn-rate: 300 # TWEAK: Despawns arrows faster (5 mins -> 15 seconds).
+    trident-despawn-rate: 1200
+    zombie-aggressive-towards-villager: true
+    nerf-spawner-mobs: true # OPTIMIZATION: Mobs from spawners will have no AI. They just stand still.
+    enable-zombie-pigmen-portal-spawns: true
+    wither-spawn-sound-radius: 0
+    end-portal-sound-radius: 0
+    hanging-tick-frequency: 100
+    unload-frozen-chunks: false
+    growth:
+      # OPTIMIZATION: Makes crops/plants check for growth 3x less often, but grow 3x as much when they do.
+      # This "batches" growth ticks and saves performance from large farms.
+      cactus-modifier: 300
+      cane-modifier: 300
+      melon-modifier: 300
+      mushroom-modifier: 300
+      pumpkin-modifier: 300
+      sapling-modifier: 300
+      beetroot-modifier: 300
+      carrot-modifier: 300
+      potato-modifier: 300
+      torchflower-modifier: 300
+      wheat-modifier: 300
+      netherwart-modifier: 300
+      vine-modifier: 300
+      cocoa-modifier: 300
+      bamboo-modifier: 300
+      sweetberry-modifier: 300
+      kelp-modifier: 300
+      twistingvines-modifier: 300
+      weepingvines-modifier: 300
+      cavevines-modifier: 300
+      glowberry-modifier: 300
+      pitcherplant-modifier: 300
+    entity-activation-range:
+      # OPTIMIZATION: Reduces the range at which entities are "awake" and using CPU.
+      animals: 24
+      monsters: 28
+      raiders: 48
+      misc: 12
+      water: 16
+      villagers: 28 # This can break villager breeders/iron farms if they are outside this range from a player.
+      flying-monsters: 32
+      wake-up-inactive:
+        # OPTIMIZATION: Wakes up inactive entities less often.
+        animals-max-per-tick: 4
+        animals-every: 2000
+        animals-for: 100
+        monsters-max-per-tick: 8
+        monsters-every: 800
+        monsters-for: 100
+        villagers-max-per-tick: 4
+        villagers-every: 1200
+        villagers-for: 100
+        flying-monsters-max-per-tick: 8
+        flying-monsters-every: 400
+        flying-monsters-for: 100
+      villagers-work-immunity-after: 100
+      villagers-work-immunity-for: 20
+      villagers-active-for-panic: true
+      tick-inactive-villagers: false # OPTIMIZATION: Villagers outside activation range won't restock trades. HUGE performance gain for trading halls.
+      ignore-spectators: false
+    entity-tracking-range:
+      # OPTIMIZATION: Reduces distance players can SEE entities. Saves network bandwidth.
+      players: 80
+      animals: 48
+      monsters: 48
+      misc: 48
+      display: 128
+      other: 48
+    ticks-per:
+      hopper-transfer: 12 # OPTIMIZATION: Slows hoppers down slightly. Saves a lot of CPU from large sorters.
+      hopper-check: 8 # OPTIMIZATION: Makes hoppers check for items above them less often.
+    hopper-amount: 1
+    hopper-can-load-chunks: false # IMPORTANT: Keep this false. True will destroy your server performance.
+    dragon-death-sound-radius: 0
+    seed-village: 10387312
+    seed-desert: 14357617
+    seed-igloo: 14357618
+    seed-jungle: 14357619
+    seed-swamp: 14357620
+    seed-monument: 10387313
+    seed-shipwreck: 165745295
+    seed-ocean: 14357621
+    seed-outpost: 165745296
+    seed-endcity: 10387313
+    seed-slime: 987234911
+    seed-nether: 30084232
+    seed-mansion: 10387319
+    seed-fossil: 14357921
+    seed-portal: 34222645
+    seed-ancientcity: 20083232
+    seed-trailruins: 83469867
+    seed-trialchambers: 94251327
+    seed-buriedtreasure: 10387320
+    seed-mineshaft: default
+    seed-stronghold: default
+    hunger:
+      jump-walk-exhaustion: 0.05
+      jump-sprint-exhaustion: 0.2
+      combat-exhaustion: 0.1
+      regen-exhaustion: 6.0
+      swim-multiplier: 0.01
+      sprint-multiplier: 0.1
+      other-multiplier: 0.0
+    max-tnt-per-tick: 30 # OPTIMIZATION: Prevents TNT lag machines from crashing the server.
+    max-tick-time:
+      tile: 50
+      entity: 50
+    verbose: false
+players:
+  disable-saving: false
+config-version: 12
+stats:
+  disable-saving: true # OPTIMIZATION: Disables saving player stats (minor I/O reduction).
+  forced-stats: {}
+commands:
+  tab-complete: -1
+  send-namespaced: true
+  log: true
+  spam-exclusions:
+  - /skill
+  silent-commandblock-console: false
+  replace-commands:
+  - setblock
+  - summon
+  - testforblock
+  - tellraw
+  enable-spam-exclusions: false
